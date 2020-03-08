@@ -47,6 +47,7 @@ public class EventsAdapter extends ArrayAdapter<Events> {
         TextView StatusD=(TextView)listviewitem.findViewById(R.id.statusD);
         Button buttonRegister = listviewitem.findViewById(R.id.buttonRegister);
         Button buttonNavigate = listviewitem.findViewById(R.id.buttonNavigate);
+        TextView PriceD=(TextView)listviewitem.findViewById(R.id.ticketpriceD);
 
 
 
@@ -60,6 +61,7 @@ public class EventsAdapter extends ArrayAdapter<Events> {
         EnddateD.setText(event.getEnddate());
         PhoneD.setText(event.getContactinfo());
         StatusD.setText(event.getStatus());
+        PriceD.setText(event.getTicketprice());
 
         buttonNavigate.setOnClickListener(new View.OnClickListener() {
             @Override

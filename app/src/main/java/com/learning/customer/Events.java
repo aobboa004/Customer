@@ -10,13 +10,14 @@ public class Events {
     private String starttime;
     private String contactinfo;
     private String venue;
+    private String ticketprice;
     private String status= "Pending";
 
     public Events() {
 
     }
 
-    public Events(String name, String id, String organiser, String startdate, String enddate, String starttime, String contactinfo, String venue, String status) {
+    public Events(String name, String id, String organiser, String startdate, String enddate, String starttime, String contactinfo, String venue, String status,String ticketprice) {
         this.name = name;
         this.id = id;
         this.organiser = organiser;
@@ -26,10 +27,19 @@ public class Events {
         this.contactinfo = contactinfo;
         this.venue = venue;
         this.status = status;
+        this.ticketprice=ticketprice;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getTicketprice() {
+        return ticketprice;
+    }
+
+    public void setTicketprice(String ticketprice) {
+        this.ticketprice = ticketprice;
     }
 
     public void setName(String name) {
