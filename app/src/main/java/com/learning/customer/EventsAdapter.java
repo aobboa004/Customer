@@ -39,7 +39,7 @@ public class EventsAdapter extends ArrayAdapter<Events> {
         View listviewitem=layoutInflater.inflate(R.layout.single_info_event_layout,null,true);
         TextView NameD=(TextView)listviewitem.findViewById(R.id.NameD);
         TextView OrganiserD=(TextView)listviewitem.findViewById(R.id.OrganiserD);
-        TextView VenueD=(TextView)listviewitem.findViewById(R.id.VenueD);
+        final TextView VenueD=(TextView)listviewitem.findViewById(R.id.VenueD);
         TextView StartdateD=(TextView)listviewitem.findViewById(R.id.StartdateD);
         TextView StarttimeD=(TextView)listviewitem.findViewById(R.id.StarttimeD);
         TextView EnddateD=(TextView)listviewitem.findViewById(R.id.EnddateD);
@@ -65,8 +65,12 @@ public class EventsAdapter extends ArrayAdapter<Events> {
             @Override
             public void onClick(View v) {
 
-                String s="Tech+Park+SRM+Potheri+Chennai";
-                String uri=String.format("google.navigation:q=%s",s);
+
+
+                String s=VenueD.getText().toString();
+                String d=s.replaceAll(" ","+");
+                String m=d.replaceAll(",","+");
+                String uri=String.format("google.navigation:q=%s",m);
                 Uri gmmIntentUri = Uri.parse(uri);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
@@ -82,7 +86,7 @@ public class EventsAdapter extends ArrayAdapter<Events> {
             @Override
             public void onClick(View v) {
                     Intent intent=new Intent(getContext(),EventRegistration.class);
-                    context.startActivity(intent);
+                context.startActivity(intent);
             }
         });
 
