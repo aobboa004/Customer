@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.List;
 
 public class EventsAdapter extends ArrayAdapter<Events> {
-
+    public static final String Event_ID="";
     private Activity context;
     private List<Events> list;
     private DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Events");;
@@ -86,6 +86,7 @@ public class EventsAdapter extends ArrayAdapter<Events> {
             @Override
             public void onClick(View v) {
                     Intent intent=new Intent(getContext(),EventRegistration.class);
+                    intent.putExtra(Event_ID,event.getId());
                 context.startActivity(intent);
             }
         });
