@@ -55,8 +55,11 @@ public class Display extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren())
                 {
                     Events event=ds.getValue(Events.class);
-                    eventsList.add(event);
-
+                    String m=event.getStatus();
+                    if(m.equals("Approved"))
+                    {
+                        eventsList.add(event);
+                    }
                 }
 
                 EventsAdapter adapter= new EventsAdapter(Display.this,eventsList);
