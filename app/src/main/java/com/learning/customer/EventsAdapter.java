@@ -45,6 +45,8 @@ public class EventsAdapter extends ArrayAdapter<Events> {
         TextView EnddateD=(TextView)listviewitem.findViewById(R.id.EnddateD);
         TextView PhoneD=(TextView)listviewitem.findViewById(R.id.phoneD);
         TextView StatusD=(TextView)listviewitem.findViewById(R.id.statusD);
+        Button buttonRegister = listviewitem.findViewById(R.id.buttonRegister);
+        Button buttonNavigate = listviewitem.findViewById(R.id.buttonNavigate);
 
 
 
@@ -58,6 +60,31 @@ public class EventsAdapter extends ArrayAdapter<Events> {
         EnddateD.setText(event.getEnddate());
         PhoneD.setText(event.getContactinfo());
         StatusD.setText(event.getStatus());
+
+        buttonNavigate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String s="Tech+Park+SRM+Potheri+Chennai";
+                String uri=String.format("google.navigation:q=%s",s);
+                Uri gmmIntentUri = Uri.parse(uri);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                /*if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    context.startActivity(mapIntent);
+                }*/
+                context.startActivity(mapIntent);
+
+            }
+        });
+
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent=new Intent(getContext(),EventRegistration.class);
+                    context.startActivity(intent);
+            }
+        });
 
 
 
