@@ -17,6 +17,7 @@ public class EventRegistration extends AppCompatActivity {
     Button registerevent;
     EditText NameE,CollegenameE,CollegeStudentIdE,EmailE,PhoneE;
     DatabaseReference ref;
+    String idj;
 
 
 
@@ -33,9 +34,9 @@ public class EventRegistration extends AppCompatActivity {
 
 
         Intent intent =getIntent();
-        String id= intent.getStringExtra(EventsAdapter.Event_ID);
+         idj= intent.getStringExtra(EventsAdapter.Event_ID);
 
-        ref=FirebaseDatabase.getInstance().getReference("client").child(id);
+       ref=FirebaseDatabase.getInstance().getReference("client");
 
         registerevent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +85,7 @@ public class EventRegistration extends AppCompatActivity {
         }
 
         String id=ref.push().getKey();
-        Client client=new Client(id,NameEj,CollegenameEj,CollegeStudentIdEj,EmailEj,PhoneEj);
+        Client client=new Client(id,NameEj,CollegenameEj,CollegeStudentIdEj,EmailEj,PhoneEj,idj);
         ref.child(id).setValue(client);
         Toast toast=Toast.makeText(EventRegistration.this,"You are successfully registered",Toast.LENGTH_SHORT);
         toast.show();

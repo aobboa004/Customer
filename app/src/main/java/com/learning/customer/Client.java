@@ -8,17 +8,27 @@ public class Client {
     private String clientCollegeStudentID;
     private String clientEmail;
     private String clientPhoneNumber;
+    private String eventIDj;
 
     public Client() {
     }
 
-    public Client(String clientID, String clientName, String clientCollege, String clientCollegeStudentID, String clientEmail, String clientPhoneNumber) {
+    public Client(String clientID, String clientName, String clientCollege, String clientCollegeStudentID, String clientEmail, String clientPhoneNumber,String eventIDj) {
         this.clientID = clientID;
         this.clientName = clientName;
         this.clientCollege = clientCollege;
         this.clientCollegeStudentID = clientCollegeStudentID;
         this.clientEmail = clientEmail;
         this.clientPhoneNumber = clientPhoneNumber;
+        this.eventIDj=eventIDj;
+    }
+
+    public String getEventIDj() {
+        return eventIDj;
+    }
+
+    public void setEventIDj(String eventIDj) {
+        this.eventIDj = eventIDj;
     }
 
     public String getClientID() {
